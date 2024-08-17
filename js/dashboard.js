@@ -36,7 +36,7 @@ onAuthStateChanged(auth, (user) => {
             renderBlogs(blogs);
         });
     } else {
-        window.open("signIn.html");
+        window.location.href="signIn.html";
     }
 });
 
@@ -72,7 +72,7 @@ const signOutUser = document.querySelector("#sign-out");
 signOutUser.addEventListener("click", (event) => {
     event.preventDefault();
     signOut(auth).then(() => {
-        window.open("signIn.html");
+        window.location.href="signIn.html";
     }).catch((error) => {
         alert(error);
     });
