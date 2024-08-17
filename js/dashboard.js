@@ -5,20 +5,24 @@ import { auth, db } from './firebase.mjs';
 const blogsContainer = document.getElementById('blogsContainer');
 
 export function renderBlogs(blogs) {
-    blogsContainer.innerHTML = '';
-    blogs.forEach(blog => {
-        const blogDiv = document.createElement('div');
-        blogDiv.className = 'bg-gray-50 p-4 rounded-lg shadow-md mb-5';
-        blogDiv.innerHTML = `
-      <h3 class="text-lg font-semibold">${blog.title}</h3>
-      <p class="mt-2">${blog.body}</p>
-      <small class="block mt-2 text-gray-500">${blog.date.toDate().toLocaleString()}</small>
-      <div class="mt-4 flex space-x-2">
-        <button onclick="deleteBlog('${blog.id}')" class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>
-      </div>
-    `;
-        blogsContainer.appendChild(blogDiv);
-    });
+  blogsContainer.innerHTML = "";
+  blogs.forEach((blog) => {
+    const blogDiv = document.createElement("div");
+    blogDiv.className = "bg-gray-50 p-4 rounded-lg shadow-md mb-5";
+    blogDiv.innerHTML = `
+            <h3 class="text-lg font-bold">${blog.title}</h3>
+            <p class="text-justify">${blog.body}</p>
+            <small class="block mt-2 text-gray-500">${blog.date
+              .toDate()
+              .toLocaleString()}</small>
+            <div class="mt-4 flex space-x-2">
+                <button data-id="${
+                  blog.id
+                }" class="delete-blog bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>
+            </div>
+        `;
+    blogsContainer.appendChild(blogDiv);
+  });
 }
 
 onAuthStateChanged(auth, (user) => {
