@@ -75,7 +75,7 @@ const signOutUser = document.querySelector("#sign-out");
 signOutUser.addEventListener("click", (event) => {
     event.preventDefault();
     signOut(auth).then(() => {
-        window.location.href="signIn.html";
+        window.location.href="index.html";
     }).catch((error) => {
         alert(error);
     });
