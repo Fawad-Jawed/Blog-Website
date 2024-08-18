@@ -16,12 +16,22 @@ export function renderBlogs(blogs) {
               .toDate()
               .toLocaleString()}</small>
             <div class="mt-4 flex space-x-2">
-                <button data-id="${
-                  blog.id
-                }" class="delete-blog bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>
+                <button data-id="${blog.id}" class="delete-blog bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>
             </div>
         `;
     blogsContainer.appendChild(blogDiv);
+  });
+
+  // Add event listeners to delete buttons
+  document.querySelectorAll('.delete-blog').forEach(button => {
+    button.addEventListener('click', async (event) => {
+      const id = event.target.getAttribute('data-id');
+      try {
+        await deleteDoc(doc(db, 'blogs', id));
+      } catch (error) {
+        console.error(error);
+      }
+    });
   });
 }
 
@@ -61,13 +71,13 @@ document.getElementById('newBlogForm').addEventListener('submit', async (event) 
 
 
 
-document.deleteBlog = async (id) => {
-    try {
-        await deleteDoc(doc(db, 'blogs', id));
-    } catch (error) {
-        console.error(error);
-    }
-};
+// document.deleteBlog = async (id) => {
+//     try {
+//         await deleteDoc(doc(db, 'blogs', id));
+//     } catch (error) {
+//         console.error(error);
+//     }
+// };
 
 // For Signing Out User
 const signOutUser = document.querySelector("#sign-out");
