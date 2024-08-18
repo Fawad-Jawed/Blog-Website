@@ -1,14 +1,24 @@
 import { renderBlogs } from "./dashboard.js";
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+import { db } from './firebase.mjs'; // Ensure you import your Firestore instance
 
-// Function to fetch blogs (you should replace this with your actual data fetching logic)
+// Function to fetch blogs from Firestore
 async function fetchBlogs() {
-    // Mock data for demonstration purposes
-    return [
-        { id: "1", title: "Sample Blog 1", body: "This is a sample blog.", date: new Date() },
-        { id: "2", title: "Sample Blog 2", body: "This is another sample blog.", date: new Date() }
-    ];
+    try {
+        const blogsCollection = collection(db, 'blogs');
+        const querySnapshot = await getDocs(blogsCollection);
+        const blogs = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        return blogs;
+    } catch (error) {
+        console.error('Error fetching blogs:', error);
+        return []; // Return an empty array if there's an error
+    }
 }
 
+// Function to load and render blogs
 async function loadBlogs() {
     try {
         const blogs = await fetchBlogs();
@@ -31,6 +41,7 @@ if (currentHour < 12) {
 
 // Load blogs when the page loads
 loadBlogs();
+
 
 
 
