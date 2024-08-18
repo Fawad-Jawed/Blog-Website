@@ -1,5 +1,5 @@
-// import {renderBlogs} from "./dashboard.js"
-// renderBlogs()
+import {renderBlogs} from "./dashboard.js"
+renderBlogs()
 const heading = document.getElementById("head");
 const currentHour = new Date().getHours();
 
