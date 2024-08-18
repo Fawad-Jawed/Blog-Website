@@ -1,23 +1,27 @@
-document.getElementById('newBlogForm').addEventListener('submit', async (event) => {
-    event.preventDefault();
+import { renderBlogs } from "./dashboard.js";
+import { collection, query, orderBy, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js';
+import { db } from './firebase.mjs';
 
-    const title = document.getElementById('title').value;
-    const body = document.getElementById('body').value;
+const blogsContainer = document.getElementById('blogsContainer');
 
-    try {
-        await addDoc(collection(db, 'blogs'), {
-            title,
-            body,
-            date: new Date(),
-            userId: auth.currentUser.uid
-        });
-        document.getElementById('newBlogForm').reset();
-        // Redirect to index.html
-        window.location.href = "index.html";
-    } catch (error) {
-        console.error(error);
-    }
+const q = query(collection(db, 'blogs'), orderBy('date', 'desc'));
+onSnapshot(q, (querySnapshot) => {
+    const blogs = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+    renderBlogs(blogs);
 });
+
+const heading = document.getElementById("head");
+const currentHour = new Date().getHours();
+
+if (currentHour < 12) {
+    heading.innerText = "Good Morning Readers!";
+} else {
+    heading.innerText = "Good Afternoon Readers!";
+}
+
 
 
 
