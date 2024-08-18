@@ -54,8 +54,6 @@ document.getElementById('newBlogForm').addEventListener('submit', async (event) 
             userId: auth.currentUser.uid
         });
         document.getElementById('newBlogForm').reset();
-        // Redirect to index.html
-        // window.location.href = "index.html";
     } catch (error) {
         console.error(error);
     }
