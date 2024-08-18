@@ -46,15 +46,16 @@ document.getElementById('newBlogForm').addEventListener('submit', async (event) 
     const title = document.getElementById('title').value;
     const body = document.getElementById('body').value;
 
-    if (auth.currentUser) {
+    try {
         await addDoc(collection(db, 'blogs'), {
             title,
             body,
             date: new Date(),
             userId: auth.currentUser.uid
         });
-
-        window.location.reload();
+        document.getElementById('newBlogForm').reset();
+    } catch (error) {
+        console.error(error);
     }
 });
 
