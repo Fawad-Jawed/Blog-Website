@@ -55,7 +55,7 @@ document.getElementById('newBlogForm').addEventListener('submit', async (event) 
         });
         document.getElementById('newBlogForm').reset();
         // Redirect to index.html
-        window.location.href = "index.html";
+        // window.location.href = "index.html";
     } catch (error) {
         console.error(error);
     }
