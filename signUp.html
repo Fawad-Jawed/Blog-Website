@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+    <!-- Link to external CSS file for styling the page -->
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+<body>
+    <!-- Container for the sign-up form -->
     <div class="container">
-      <h1>Sign Up</h1>
-      <form id="signup-form">
-        <label for="first-name">First Name:</label>
-        <input type="text" id="first-name" required />
+        <!-- Main heading for the sign-up page -->
+        <h1>Sign Up</h1>
+        <!-- Sign-up form -->
+        <form id="signup-form">
+            <!-- Input for the user's first name -->
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" required />
 
-        <label for="last-name">Last Name:</label>
-        <input type="text" id="last-name" required />
+            <!-- Input for the user's last name -->
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" required />
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" required />
+            <!-- Input for the user's email address -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
 
-        <label for="pass">Password:</label>
-        <input type="password" id="pass" required />
+            <!-- Input for the user's password -->
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" required />
 
-        <button type="button" id="btn">Sign Up</button>
-      </form>
-      <div class="signin-link">
-        <p>Already have an account? <a href="signIn.html">Sign In</a></p>
-      </div>
+            <!-- Button to submit the form -->
+            <button type="button" id="btn">Sign Up</button>
+        </form>
+        <!-- Link to the sign-in page for users who already have an account -->
+        <div class="signin-link">
+            <p>Already have an account? <a href="signIn.html">Sign In</a></p>
+        </div>
     </div>
 
+    <!-- JavaScript module for handling sign-up functionality -->
     <script type="module" src="js/signUp.js"></script>
-  </body>
+</body>
 </html>
+
