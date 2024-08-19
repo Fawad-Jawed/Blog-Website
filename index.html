@@ -4,36 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page displayed in the browser tab -->
     <title>Blogging Site</title>
+    <!-- Link to DaisyUI for styling components -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
-     <!-- Navbar -->
-     <div class="navbar bg-primary static top-0 p-0 pr-3 bg-blue-700">
+    <!-- Navbar Section -->
+    <div class="navbar bg-primary static top-0 p-0 pr-3 bg-blue-700">
+        <!-- Navbar Brand -->
         <div class="navbar text-primary-content ">
+            <!-- Brand Button -->
             <button class="btn btn-ghost text-2xl text-white ">Blogging Website</button>
         </div>
+        <!-- Logout or Sign-In Button -->
         <div class="w-48">
-            <!-- For Logout Button -->
+            <!-- Sign In Button, with link to sign-in page -->
             <div class="w-24">
-                <button class="btn btn-ghost text-white text-lg  hover:bg-white hover:text-black "><a href="signIn.html">Sign In</a></button>
+                <button class="btn btn-ghost text-white text-lg hover:bg-white hover:text-black">
+                    <a href="signIn.html">Sign In</a>
+                </button>
             </div>
         </div>
     </div>
-<!-- Greeting -->
+
+    <!-- Greeting Section -->
     <section class="bg-white p-3 rounded-lg shadow-lg">
+        <!-- Heading for user greeting or title, with id "head" for JavaScript manipulation -->
         <h2 class="text-2xl text-left font-bold mb-2" id="head"></h2>
     </section>
 
-    <!-- Render All Blogs -->
-<section class="bg-white p-3 w-32 my-4 mx-8 rounded-lg shadow-lg">
+    <!-- Blogs Section -->
+    <section class="bg-white p-3 w-32 my-4 mx-8 rounded-lg shadow-lg">
+        <!-- Heading for displaying all blogs -->
         <h2 class="text-2xl text-left font-bold mb-2">All Blogs</h2>
+        <!-- Container for dynamically rendering blogs -->
         <div id="blogsContainer" class="space-y-4"></div>
-    </section> 
+    </section>
 
+    <!-- JavaScript modules and TailwindCSS -->
+    <!-- Import custom JavaScript module for functionality -->
     <script type="module" src="js/index.js"></script>
+    <!-- Import TailwindCSS for additional styling -->
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
 
