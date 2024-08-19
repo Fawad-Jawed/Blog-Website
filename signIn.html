@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In</title>
+    <!-- Link to external CSS file for styling the page -->
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-  </head>
-  <body>
+</head>
+<body>
+    <!-- Container for the sign-in form -->
     <div class="container">
-      <h1>Sign In</h1>
-      <form id="signin-form">
-        <label for="email">Email:</label>
-        <input type="email" id="email" required />
+        <!-- Main heading for the sign-in page -->
+        <h1>Sign In</h1>
+        <!-- Sign-in form -->
+        <form id="signin-form">
+            <!-- Input for the user's email address -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
 
-        <label for="pass">Password:</label>
-        <input type="password" id="pass" required />
+            <!-- Input for the user's password -->
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" required />
 
-        <button type="button" id="btn">Sign In</button>
-      </form>
-      <div class="signup-link">
-        <p>Don't have an account? <a href="signUp.html">Sign Up</a></p>
-      </div>
+            <!-- Button to submit the form -->
+            <button type="button" id="btn">Sign In</button>
+        </form>
+        <!-- Link to the sign-up page for users who need to create an account -->
+        <div class="signup-link">
+            <p>Don't have an account? <a href="signUp.html">Sign Up</a></p>
+        </div>
     </div>
 
+    <!-- JavaScript module for handling sign-in functionality -->
     <script type="module" src="js/signIn.js"></script>
-  </body>
+</body>
 </html>
